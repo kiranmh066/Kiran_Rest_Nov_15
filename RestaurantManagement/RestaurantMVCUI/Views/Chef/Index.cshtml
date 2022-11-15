@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RestaurantEntity.Cook>;
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutChef.cshtml";
+
+}
+<h1>Index of chef</h1>
+
+@if (true)
+{
+   ;
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3>Dishes</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Emp Id</th>
+                    <th>Food Name</th>
+                    <th>Quantity</th>
+                    <th>Speciality</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    @if (item.Employee.EmpEmail == Convert.ToString(TempData["chefemail"]))
+                    {
+                    <tr>
+                        <td>@item.EmpId</td>
+                        <td>@item.FoodId</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Speciality</td>
+                        <td>@item.CookStatus</td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
