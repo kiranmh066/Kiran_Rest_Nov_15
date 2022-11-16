@@ -28,6 +28,21 @@ namespace RestaurantDAL.Repost
             _dbContext.SaveChanges();
         }
 
+        public IEnumerable<AssignWork> GetAssignWorkByEmpId(int empId)
+        {
+            List<AssignWork> assignWork = _dbContext.tbl_AssignWork.Include(obj => obj.Order.Food).Include(obj => obj.Employee).ToList();
+
+            List<AssignWork> assignWorkList = new List<AssignWork>();
+            foreach(var item in assignWork)
+            {
+                if(empId==item.EmpId)
+                {
+                    assignWorkList.Add(item);
+                }
+            }
+            return assignWorkList;
+        }
+
         public AssignWork GetAssignWorkById(int assignWorkId)
         {
             return _dbContext.tbl_AssignWork.Find(assignWorkId);
@@ -35,7 +50,7 @@ namespace RestaurantDAL.Repost
 
         public IEnumerable<AssignWork> GetAssignWorks()
         {
-            return _dbContext.tbl_AssignWork.Include(obj => obj.Employee).Include(obj=>obj.Order).ToList();
+            return _dbContext.tbl_AssignWork.Include(obj => obj.Employee).Include(obj => obj.Order).Include(obj => obj.Order.Food).ToList();
         }
 
         public IEnumerable<AssignWork> GetAssignWorksBySpeciality(string speciality)

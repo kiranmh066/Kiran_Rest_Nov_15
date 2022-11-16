@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RestaurantEntity;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,35 +11,39 @@ namespace RestaurantMVCUI.Controllers
 {
     public class ChefController : Controller
     {
-        private IConfiguration _configuration;
-
+        IConfiguration _configuration;
         public ChefController(IConfiguration configuration)
         {
+
             _configuration = configuration;
         }
-        public async Task<IActionResult> Index(Cook cook)
+
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Cook> cookresult = null;
+            IEnumerable<AssignWork> assignWork = null;
             using (HttpClient client = new HttpClient())
             {
-                string endPoint = _configuration["WebApiBaseUrl"] + "Cook/GetCooks";
+
+                int EmpId =Convert.ToInt32(TempData["empId"]);
+                string endPoint = _configuration["WebApiBaseUrl"] + "AssignWork/GetAssignWorkByEmpId?empId=" + EmpId;//EmployeeId is apicontroleer passing argument name//api controller name and httppost name given inside httppost in Employeecontroller of api
 
                 using (var response = await client.GetAsync(endPoint))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
+                    {   //dynamic viewbag we can create any variable name in run time
                         var result = await response.Content.ReadAsStringAsync();
-                        cookresult = JsonConvert.DeserializeObject<IEnumerable<Cook>>(result);
+                        assignWork = JsonConvert.DeserializeObject<IEnumerable<AssignWork>>(result);
                     }
+
+
+
                 }
             }
-            return View(cookresult);
+            return View(assignWork);
+          
+
+
         }
-        /*public IActionResult Index(int EmpId)
-        {
-            Employee employee = new Employee();
-            employee.EmpId = EmpId;
-            return View(employee.EmpId);
-        }*/
+
     }
 }

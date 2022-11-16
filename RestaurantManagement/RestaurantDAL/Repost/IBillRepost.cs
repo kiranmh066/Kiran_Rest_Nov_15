@@ -7,6 +7,15 @@ namespace RestaurantDAL.Repost
 {
     public interface IBillRepost
     {
-        //IEnumerable<Order> GetOrdersByTableId();
+        void AddBill(Bill bill);
+        void UpdateBill(Bill bill);
+
+        void DeleteBill(int billId);
+
+        Bill GetBillById(int billId);
+
+        Bill GetBillByHallTableId(int hallId);
+
+        IEnumerable<Bill> GetBills();
     }
 }

@@ -69,53 +69,23 @@ namespace RestaurantDAL.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<bool>("BillStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("HallTableId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("BillDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("OrderId1")
                         .HasColumnType("int");
 
-                    b.HasKey("BillId");
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("HallTableId");
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BillId");
 
                     b.HasIndex("OrderId1");
 
                     b.ToTable("tbl_Bill");
-                });
-
-            modelBuilder.Entity("RestaurantEntity.Cook", b =>
-                {
-                    b.Property<int>("CookId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<bool>("CookStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("EmpId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Speciality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CookId");
-
-                    b.HasIndex("EmpId");
-
-                    b.HasIndex("FoodId");
-
-                    b.ToTable("tbl_Cook");
                 });
 
             modelBuilder.Entity("RestaurantEntity.Employee", b =>
@@ -129,13 +99,21 @@ namespace RestaurantDAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmpEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("EmpGender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("EmpName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmpPassword")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<double>("EmpPhone")
                         .HasColumnType("float");
@@ -186,6 +164,9 @@ namespace RestaurantDAL.Migrations
 
                     b.Property<string>("FoodCuisine")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("FoodImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("FoodName")
                         .HasColumnType("nvarchar(max)");
@@ -276,38 +257,11 @@ namespace RestaurantDAL.Migrations
 
             modelBuilder.Entity("RestaurantEntity.Bill", b =>
                 {
-                    b.HasOne("RestaurantEntity.HallTable", "HallTable")
-                        .WithMany()
-                        .HasForeignKey("HallTableId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RestaurantEntity.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId1");
 
-                    b.Navigation("HallTable");
-
                     b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("RestaurantEntity.Cook", b =>
-                {
-                    b.HasOne("RestaurantEntity.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmpId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RestaurantEntity.Food", "Food")
-                        .WithMany()
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("RestaurantEntity.Feedback", b =>

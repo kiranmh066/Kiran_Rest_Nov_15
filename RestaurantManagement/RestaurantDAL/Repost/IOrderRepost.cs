@@ -15,7 +15,8 @@ namespace RestaurantDAL.Repost
         Order GetOrderById(int orderId);
 
         IEnumerable<Order> GetOrders();
-
         IEnumerable<Order> GetOrdersByTableId(int hallTableId);
+
+        IEnumerable<Order> GetAllOrderByUserId(int userId);
     }
 }

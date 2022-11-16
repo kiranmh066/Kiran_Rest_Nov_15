@@ -51,6 +51,12 @@ namespace RestaurantAPI.Controllers
             return _assignWorkService.GetAssignWorkBySpeciality(speciality);
         }
 
+        [HttpGet("GetAssignWorkByEmpId")]
+        public IEnumerable<AssignWork> GetAssignWorkByEmpId(int empId)
+        {
+            return _assignWorkService.GetAssignWorkByEmpId(empId);
+        }
+
         [HttpPost("AddAssignWork")]
         public IActionResult AddAssignWork(AssignWork assignWorkInfo)
         {

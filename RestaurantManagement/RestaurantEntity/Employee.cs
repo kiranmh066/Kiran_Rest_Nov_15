@@ -14,8 +14,14 @@ namespace RestaurantEntity
 
         public string EmpName { get; set; }
 
-        public string EmpEmail { get; set; }
 
+
+        [Required]
+        [MaxLength(25)]
+        public string EmpEmail { get; set; }
+        
+        [Required]
+        [MaxLength(12)]
         public string EmpPassword { get; set; }
 
         public string EmpDesignation { get; set; }
@@ -23,5 +29,7 @@ namespace RestaurantEntity
         public string EmpSpeciality { get; set; }
 
         public double EmpPhone { get; set; }
+
+        public char EmpGender { get; set; }
     }
 }

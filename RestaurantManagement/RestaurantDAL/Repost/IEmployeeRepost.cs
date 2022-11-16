@@ -13,8 +13,6 @@ namespace RestaurantDAL.Repost
 
         Employee GetEmployeeById(int employeeId);
 
-  /*      IEnumerable<Employee> GetEmployeeBySpeciality(string speciality);*/
-
         IEnumerable<Employee> GetEmployees();
 
         void AddEmployee(Employee employee);

@@ -5,26 +5,52 @@
     Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
 
 }
-<h1>Index of Admin1</h1>
-
-<a asp-controller="Admin1" asp-action="AddEmployee">Add Employee </a>
-<br />
-<a asp-controller="Admin1" asp-action="EditEmployee">Update Employee</a>
-<br />
-<a asp-controller="Admin1" asp-action="DeleteEmployee">Delete Employee</a>
-<br />
-
-<a asp-controller="Admin1" asp-action="GetAllEmployees">Get All Employees</a>
-<br />
-
-<a asp-controller="Admin1" asp-action="AddFood">Add Food</a>
-<br />
-
-<a asp-controller="Admin1" asp-action="EditFood">Update Food</a>
-<br />
-
-<a asp-controller="Admin1" asp-action="DeleteFood">Delete Food</a>
-<br />
-<a asp-controller="Admin1" asp-action="GetAllFoods">Get All Foods</a>
 
 
+
+
+<html>
+<head>
+
+</head>
+
+<body style="background-color:black">
+
+    
+    <div class="text-center">
+        <h2 class="display-5 text-light">Index of Admin</h2>
+        @*<h1 class="display-4 text-light" >Welcome To Restaurant</h1>*@
+        <a asp-controller="Admin1" asp-action="AddEmployee" type="button " class="btn btn-success" style="width:200px">Add Employee </a>
+         <hr />
+        <br />
+        <a asp-controller="Admin1" asp-action="EditEmployee" type="button" class="btn btn-success" style="width:200px">Update Employee</a>
+        <hr />
+        <br />
+        <a asp-controller="Admin1" asp-action="DeleteEmployee" type="button" class="btn btn-success" style="width:200px">Delete Employee</a>
+        <hr />
+        <br />
+
+        <a asp-controller="Admin1" asp-action="GetAllEmployees" type="button" class="btn btn-success" style="width:200px">Get All Employees</a>
+        <hr />
+        <br />
+
+        <a asp-controller="Admin1" asp-action="AddFood" type="button" class="btn btn-primary" style="width:200px">Add Food</a>
+        <hr />
+        <br />
+
+        <a asp-controller="Admin1" asp-action="EditFood" type="button" class="btn btn-primary" style="width:200px">Update Food</a>
+        <hr />
+        <br />
+
+        <a asp-controller="Admin1" asp-action="DeleteFood" type="button" class="btn btn-primary" style="width:200px">Delete Food</a>
+        <hr />
+        <br />
+        <a asp-controller="Admin1" asp-action="GetAllFoods" type="button" class="btn btn-primary" style="width:200px">Get All Foods</a>
+        <hr />
+
+
+
+    </div>
+
+</body>
+</html>

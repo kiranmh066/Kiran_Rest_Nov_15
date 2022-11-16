@@ -48,7 +48,11 @@ namespace RestaurantBLL.Services
             _orderRepository.AddOrder(orderInfo);
         }
 
-        //Getting Orders By HallTable ID
+        public IEnumerable<Order> GetOrderByHallId(int HallId)
+        { 
+           return _orderRepository.GetAllOrderByUserId(HallId);
+        }
+
         public IEnumerable<Order> GetOrdersByTableId(int hallTableId)
         {
             return _orderRepository.GetOrdersByTableId(hallTableId);

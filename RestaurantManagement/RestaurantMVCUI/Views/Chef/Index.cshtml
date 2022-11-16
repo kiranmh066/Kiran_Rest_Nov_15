@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RestaurantEntity.Cook>;
+﻿@model IEnumerable<RestaurantEntity.AssignWork>
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,42 +8,38 @@
 }
 <h1>Index of chef</h1>
 
-@if (true)
-{
-   ;
-}
-
 <div class="row">
     <div class="col-12">
-        <h3>Dishes</h3>
+        <h3>AssignWorks</h3>
         <hr />
         <table class="table table-light table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Emp Id</th>
+                    <th>Assign Id</th>
+                    <th>Order Id</th>
                     <th>Food Name</th>
+                    <th>Food Cuisine</th>
                     <th>Quantity</th>
-                    <th>Speciality</th>
-                    <th>Status</th>
-                </tr>
+                    
+
+
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var AssignWork in Model)
                 {
-                    @if (item.Employee.EmpEmail == Convert.ToString(TempData["chefemail"]))
-                    {
+
                     <tr>
-                        <td>@item.EmpId</td>
-                        <td>@item.FoodId</td>
-                        <td>@item.Quantity</td>
-                        <td>@item.Speciality</td>
-                        <td>@item.CookStatus</td>
+                        <td>@AssignWork.AssignId</td>
+                        <td>@AssignWork.Order.OrderId</td>
+                        <td>@AssignWork.Order.Food.FoodName</td>
+                        <td>@AssignWork.Order.Food.FoodCuisine</td>
+                        <td>@AssignWork.Order.Quantity</td>
+                
+
                     </tr>
-                    }
+
                 }
             </tbody>
         </table>
     </div>
 </div>
-
-

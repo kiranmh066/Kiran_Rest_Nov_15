@@ -20,7 +20,7 @@ namespace RestaurantEntity
 
         public string FoodCuisine { get; set; }
 
-        //public byte[] FoodImage { get; set; }
-        
+        public byte[] FoodImage { get; set; }
+
     }
 }

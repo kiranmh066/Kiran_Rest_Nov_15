@@ -35,6 +35,10 @@ namespace RestaurantBLL.Services
         {
             return _assignWorkRepository.GetAssignWorkById(assignWorkId);
         }
+        public IEnumerable<AssignWork> GetAssignWorkByEmpId(int empId)
+        {
+            return _assignWorkRepository.GetAssignWorkByEmpId(empId);
+        }
 
         //Get AssignWorks
         public IEnumerable<AssignWork> GetAssignWork()

@@ -11,7 +11,7 @@
             <thead>
                 <tr>
                     <th>Employee Id</th>
-                    <th>Employee Name</th>-
+                    <th>Employee Name</th>
                     <th>Employee Email</th>
                     <th>Employee Password</th>
                     <th>Employee Designation</th>
@@ -19,12 +19,12 @@
                     <th>Employee Phone</th>
                     <th>Assign Work</th>
 
-              
+
             </thead>
             <tbody>
                 @foreach (var Employee in Model)
                 {
-              
+
                     <tr>
                         <td>@Employee.EmpId</td>
                         <td>@Employee.EmpName</td>
@@ -33,8 +33,8 @@
                         <td>@Employee.EmpDesignation</td>
                         <td>@Employee.EmpSpeciality</td>
                         <td>@Employee.EmpPhone</td>
-                        <a asp-controller="AssignWork" asp-action="Index"asp-route-EmpId="@Employee.EmpId">Assign to Chef</a>
-                        
+                        <td><a asp-controller="AssignWork" asp-action="Index" asp-route-EmpId="@Employee.EmpId" class="btn btn-success">Assign Work</a></td>
+
                     </tr>
 
                 }

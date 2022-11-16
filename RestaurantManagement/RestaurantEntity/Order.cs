@@ -30,10 +30,6 @@ namespace RestaurantEntity
         public bool OrderStatus { get; set; }
 
         public DateTime OrderDate { get; set; }
-
-        public Order Include(Func<object, object> value)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

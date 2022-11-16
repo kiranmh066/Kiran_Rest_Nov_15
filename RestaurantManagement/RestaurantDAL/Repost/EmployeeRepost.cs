@@ -37,10 +37,7 @@ namespace RestaurantDAL.Repost
         {
             return _dbContext.tbl_Employee.ToList();
         }
-        /*public IEnumerable<Employee> GetEmployeeBySpeciality(string speciality)
-        {
-            _dbContext.tbl_Employee.Find(speciality);
-        }*/
+
         public Employee Login(Employee employee)
         {
             Employee employeeinfo = null;

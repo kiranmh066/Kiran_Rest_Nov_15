@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RestaurantEntity;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System;
+using Microsoft.Extensions.Configuration;
 
 namespace RestaurantMVCUI.Controllers
 {
@@ -16,23 +16,20 @@ namespace RestaurantMVCUI.Controllers
         {
             _configuration = configuration;
         }
-
-
         public IActionResult Index()
         {
             return View();
         }
-
-        [HttpPost]
+     /*   [HttpPost]
         public IActionResult Index(int hallTableId)
         {
-            TempData["hallTableId"]=hallTableId;
+            TempData["hallTableId"] = hallTableId;
             return RedirectToAction("GenerateBill", "Bill");
-        }
-
+        }*/
         public async Task<IActionResult> GenerateBill()
         {
-            int hallTableId1= Convert.ToInt32(TempData["hallTableId"]);
+            /*int hallTableId1 = Convert.ToInt32(TempData["hallTableId"]);*/
+            int hallTableId1 = Convert.ToInt32(TempData["halltableuserid"]);
             TempData.Keep();
             IEnumerable<Order> orderresult = null;
             using (HttpClient client = new HttpClient())

@@ -221,12 +221,12 @@ namespace RestaurantMVCUI.Controllers
         public async Task<IActionResult> AddFood(Food food)
         {
             ViewBag.status = "";
-            /*            if (Request.Form.Files.Count > 0)
+                        if (Request.Form.Files.Count > 0)
                         {
                             MemoryStream ms = new MemoryStream();
                             Request.Form.Files[0].CopyTo(ms);
-                            Employeev.ImgPoster = ms.ToArray();
-                        }*/
+                            food.FoodImage = ms.ToArray();
+                        }
             //using grabage collection only for inbuilt classes
             using (HttpClient client = new HttpClient())
             {
@@ -280,12 +280,12 @@ namespace RestaurantMVCUI.Controllers
         public async Task<IActionResult> EditFood(Food food)
         {
             ViewBag.status = "";
-            /* if (Request.Form.Files.Count > 0)
-             {
-                 MemoryStream ms = new MemoryStream();
-                 Request.Form.Files[0].CopyTo(ms);
-                 employee.ImgPoster = ms.ToArray();
-             }*/
+            if (Request.Form.Files.Count > 0)
+            {
+                MemoryStream ms = new MemoryStream();
+                Request.Form.Files[0].CopyTo(ms);
+                food.FoodImage = ms.ToArray();
+            }
             //using grabage collection only for inbuilt classes
             using (HttpClient client = new HttpClient())
             {

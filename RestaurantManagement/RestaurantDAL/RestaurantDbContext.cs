@@ -14,15 +14,17 @@ namespace RestaurantDAL
         public DbSet<Bill> tbl_Bill { get; set; }
         public DbSet<Employee> tbl_Employee { get; set; }
         public DbSet<Feedback> tbl_Feedback { get; set; }
-        public DbSet<Food> tbl_Food { get; set; }
-        public DbSet<HallTable> tbl_HallTable { get; set; }
-        public DbSet<Order> tbl_Order { get; set; }
-        public DbSet<Cook> tbl_Cook { get; set; }
-        public DbSet<AssignWork> tbl_AssignWork { get; set; }
 
+        public DbSet<Food> tbl_Food { get; set; }
+
+        public DbSet<HallTable> tbl_HallTable { get; set; }
+
+        public DbSet<Order> tbl_Order { get; set; }
+
+        public DbSet<AssignWork> tbl_AssignWork { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer("Data Source=VDC01LTC2164; Initial Catalog = Restaurant_Chandan1; Integrated Security=True;");
+            dbContextOptionsBuilder.UseSqlServer("Data Source=VDC01LTC2164; Initial Catalog = RRestaurant_CChandan1; Integrated Security=True;");
         }
     }
 }

@@ -50,9 +50,6 @@ namespace RestaurantAPI
             services.AddTransient<HallTableService, HallTableService>();//adding services
             services.AddTransient<IHallTableRepost, HallTableRepost>();
 
-            services.AddTransient<CookService, CookService>();//adding services
-            services.AddTransient<ICookRepost, CookRepost>();
-
             services.AddTransient<AssignWorkService, AssignWorkService>();//adding services
             services.AddTransient<IAssignWorkRepost, AssignWorkRepost>();
 

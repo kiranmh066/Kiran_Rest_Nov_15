@@ -18,7 +18,7 @@ namespace RestaurantMVCUI.Controllers
         }
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexAsync()
         {
             IEnumerable<Food> foodresult = null;
             using (HttpClient client = new HttpClient())
